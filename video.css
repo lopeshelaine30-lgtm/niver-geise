@@ -1,0 +1,194 @@
+/* css/video.css
+   Estilo moderno e responsivo para video.html
+*/
+
+/* RESET mínimo */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: "Poppins", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Página inteira */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #0b0710 0%, #190620 60%, #000000 100%);
+    color: #fff;
+    height: 100vh;
+    overflow: hidden;
+    padding: 24px;
+}
+
+/* Caixa central */
+.video-wrap {
+    width: 100%;
+    max-width: 920px;
+    text-align: center;
+    animation: fadeUp .6s ease;
+}
+
+/* Card do vídeo */
+.video-card {
+    position: relative;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    border-radius: 14px;
+    padding: 14px;
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(212, 175, 55, 0.08);
+    border: 3px solid rgba(212, 175, 55, 0.12);
+    display: inline-block;
+}
+
+/* Vídeo responsivo */
+.video-card video {
+    display: block;
+    width: 100%;
+    max-width: 880px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 4px solid #d4af37;
+    /* borda dourada */
+    box-shadow:
+        0 12px 30px rgba(212, 175, 55, 0.12),
+        0 6px 18px rgba(0, 0, 0, 0.6);
+    background: black;
+}
+
+/* QR + meta abaixo do vídeo */
+.video-meta {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 14px;
+    flex-wrap: wrap;
+}
+
+/* Botão "Ir para a surpresa" */
+#btnNext {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 22px;
+    background: linear-gradient(90deg, #d4af37, #ffd97a);
+    color: #2b1c2b;
+    font-weight: 700;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 22px rgba(212, 175, 55, 0.22);
+    transform: translateY(8px);
+    transition: transform .28s ease, box-shadow .28s ease, opacity .28s;
+    opacity: 0;
+    /* inicialmente escondido — script mostra */
+    pointer-events: none;
+}
+
+/* quando receber classe show pelo JS */
+#btnNext.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* QR container */
+.qr-wrap {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* QR image (se você gerar um QR e colocar <img>) */
+.qr-wrap img {
+    width: 84px;
+    height: 84px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 2px solid rgba(212, 175, 55, 0.14);
+}
+
+/* Texto explicativo QR */
+.qr-desc {
+    font-size: 0.95rem;
+    color: #fff9;
+    text-align: left;
+}
+
+/* Acessibilidade: foco no botão */
+#btnNext:focus {
+    outline: 3px solid rgba(212, 175, 55, 0.28);
+    outline-offset: 4px;
+}
+
+/* animação simples */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsivo: tela muito pequena */
+@media (max-width: 520px) {
+    .video-card {
+        padding: 10px;
+    }
+
+    .qr-wrap img {
+        width: 64px;
+        height: 64px;
+    }
+
+    #btnNext {
+        padding: 10px 18px;
+        font-size: 0.95rem;
+    }
+}
+
+/* estilo do play overlay (opcional) — se quiser um grande play central */
+.video-play-overlay {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    font-size: 48px;
+    color: rgba(255, 255, 255, 0.12);
+    display: none;
+    /* show apenas se quiser */
+}
+
+/* pequenos ajustes visuais para impressão / reduzir cores */
+@media print {
+    body {
+        background: #fff;
+        color: #000;
+    }
+
+    .video-card {
+        box-shadow: none;
+        border: none;
+    }
+}
