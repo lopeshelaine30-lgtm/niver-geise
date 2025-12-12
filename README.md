@@ -4,7 +4,8 @@ Este repositório contém o site criado para a comemoração do aniversário da 
 O projeto inclui páginas em HTML, imagens, vídeos, música e arquivos adicionais usados para compor a experiência do site.
 
 ## 🌐 Acesse o site
-O site está disponível em:  
+O site está disponível em: 
+https://lopeshelaine30-lgtm.github.io/niver-geise/
 
 
 ## 📂 Estrutura do projeto
