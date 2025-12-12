@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Feliz Aniversário — Geise 💖</title>
+
+    <!-- Fontes -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- fundo (imagem + overlay/gradiente) -->
+    <div class="fundo" aria-hidden="true">
+        <img src="imagem/plano-fundo.png" alt="" class="fundo-img">
+        <div class="fundo-overlay"></div>
+        <div class="fundo-gradiente"></div>
+    </div>
+
+    <main class="container" id="main">
+        <header class="header" role="banner">
+            <h1 class="titulo">🎂 Feliz Aniversário, <span>Geise</span> 💖</h1>
+            <p class="subtitulo">Um site feito com carinho para celebrar você</p>
+        </header>
+
+        <!-- HERO -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="foto-principal" id="card-main" aria-hidden="true">
+                <img id="foto-main-img" src="imagem/foto-principal.jpeg" alt="Foto principal - Geise">
+                <div class="gold-shine" aria-hidden="true"></div>
+                <div class="dec-baloes" aria-hidden="true">
+                    <!-- balões gerados por CSS/JS adicionais -->
+                </div>
+            </div>
+
+            <div class="hero-text" id="hero-title">
+                <h2 class="nome">Meu Amor</h2>
+                <p class="mensagem-curta">💗 Hoje o dia é todo seu! 💗</p>
+            </div>
+
+            <!-- botão surpresa -->
+            <div class="surpresa-area" aria-live="polite">
+                <button id="btn-surpresa" class="btn-surpresa" aria-controls="texto-surpresa">CLIQUE AQUI PARA VER A
+                    SURPRESA</button>
+
+                <!-- texto surpesa (inicialmente escondido) -->
+                <div id="texto-surpresa" class="texto-surpresa" aria-hidden="true" role="region"
+                    aria-label="Mensagem surpresa">
+                    <div class="texto-surpresa-inner">
+                        <div class="surpresa-scroll" tabindex="0">
+                            <p class="surpresa-title">Meu amor,</p>
+                            <p>Que privilégio é celebrar a sua existência! Geise, você é uma mulher incrível —
+                                inteligente, linda, cheia de coragem, doçura e uma luz rara.</p>
+                            <p>Sua alma transforma qualquer dia simples em algo inesquecível só com a sua presença. Eu
+                                admiro profundamente sua força silenciosa, sua sensibilidade que acolhe, e seu jeito de
+                                ver o mundo com tanta gentileza.</p>
+                            <p>Ao seu lado, descobri a felicidade verdadeira. Você é minha melhor companhia, meu porto
+                                seguro, meu sorriso fácil, meu melhor lugar para existir. Seu amor dá sentido à minha
+                                vida.</p>
+                            <p>Que Deus abençoe cada passo e cada sonho guardado no seu coração, iluminando seus
+                                caminhos com conquistas e alegria. Você merece tudo que existe de mais bonito.</p>
+                            <p>Obrigada por ser essa mulher maravilhosa, minha amiga, minha vida.</p>
+                            <p>Feliz aniversário, Geise!</p>
+                            <p>Eu te amo hoje, amanhã e em todos os dias que ainda vamos viver.</p>
+                        </div>
+
+                        <!-- botões alinhados (desktop: direita, mobile: abaixo) -->
+                        <div class="surpresa-actions-right">
+                            <button id="btn-pause" class="btn-small" aria-pressed="false">Pausar Música</button>
+                            <button id="btn-voltar" class="btn-small btn-close">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- seção música + texto -->
+            <section class="secao-musica" aria-labelledby="musica-title">
+                <div class="texto-musica-container">
+                    <h2 id="musica-title" class="titulo-musica">Uma mensagem especial para você...</h2>
+                    <p class="texto-musica">Às vezes, as palavras não conseguem explicar o quanto alguém é especial.
+                        Então, deixo que a música fale um pouquinho por mim… ❤️✨</p>
+                </div>
+
+                <!-- áudio -->
+                <audio id="bgm" loop preload="auto">
+                    <source src="musica/Leoni.mp3" type="audio/mpeg">
+                    Seu navegador não suporta áudio.
+                </audio>
+            </section>
+
+            <!-- contagem -->
+            <section class="countdown-wrap" aria-live="polite">
+                <div id="countdown" class="countdown">🎂 Carregando contagem...</div>
+            </section>
+
+        </section>
+
+        <!-- GALERIA -->
+        <section class="galeria-wrap" aria-labelledby="galeria-title">
+            <h2 id="galeria-title" class="titulo-galeria">Nossa Galeria 💞</h2>
+
+            <div class="galeria-grid">
+                <!-- cada item: flip card com imagem (frente) e texto (verso) -->
+                <div class="flip" data-index="0" tabindex="0" role="button" aria-pressed="false">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <img src="imagem/01.jpeg" alt="Foto 1">
+                        </div>
+                        <div class="flip-back">
+                            <p>Você faz meu mundo mais bonito todos os dias. ❤️</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip" data-index="1" tabindex="0" role="button" aria-pressed="false">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <img src="imagem/02.jpeg" alt="Foto 2">
+                        </div>
+                        <div class="flip-back">
+                            <p>Teu sorriso ilumina qualquer momento meu. ✨</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip" data-index="2" tabindex="0" role="button" aria-pressed="false">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <img src="imagem/03.jpeg" alt="Foto 3">
+                        </div>
+                        <div class="flip-back">
+                            <p>Obrigado por existires na minha vida. 💕</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip" data-index="3" tabindex="0" role="button" aria-pressed="false">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <img src="imagem/04.jpeg" alt="Foto 4">
+                        </div>
+                        <div class="flip-back">
+                            <p>Cada lembrança ao seu lado é um presente. 🎁</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip" data-index="4" tabindex="0" role="button" aria-pressed="false">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <img src="imagem/05.jpeg" alt="Foto 5">
+                        </div>
+                        <div class="flip-back">
+                            <p>Que seu aniversário seja mágico como você. 🌟</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip" data-index="5" tabindex="0" role="button" aria-pressed="false">
+                    <div class="flip-inner">
+                        <div class="flip-front">
+                            <img src="imagem/06.jpeg" alt="Foto 6">
+                        </div>
+                        <div class="flip-back">
+                            <p>Que seu novo ciclo seja tão lindo quanto você. 🎉</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- modal galeria (abre ao clicar em imagem) -->
+        <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Galeria">
+            <div class="modal-panel">
+                <button id="modal-close" class="modal-close" aria-label="Fechar imagem">✕</button>
+                <img id="modal-img" src="" alt="">
+                <p id="modal-text" class="modal-text"></p>
+            </div>
+        </div>
+
+        <div class="cartao-animado" id="cartao" aria-hidden="false">
+            <div class="cartao-img">
+                <img id="cartao-img" src="imagem/casal.png" alt="Cartão - casal">
+            </div>
+
+            <div class="cartao-text">
+                <p>Feliz aniversário, Geise! Com todo meu amor 💖</p>
+            </div>
+        </div>
+
+        <div class="cartao-actions">
+            <button id="baixar-cartao" class="btn-prim">Baixar Cartão (PNG)</button>
+
+        </div>
+        </section>
+
+        <!-- html2canvas -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+        <!-- script principal -->
+        <script src="js/script.js" defer></script>
+
+    </main>
+</body>
+
+</html>

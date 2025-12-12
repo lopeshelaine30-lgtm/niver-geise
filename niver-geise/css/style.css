@@ -1,0 +1,613 @@
+/* ------------------ IMPORTS (fonts) ------------------ */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;600&display=swap');
+
+/* ---------------- RESET / GLOBAL ---------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: "Poppins", sans-serif;
+    background: rgba(0, 0, 0, 0.3);
+    /* mais claro */
+
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+}
+
+/* ---------------- FUNDO ---------------- */
+.fundo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.fundo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.55);
+}
+
+.fundo-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.50);
+}
+
+.fundo-gradiente {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.30));
+}
+
+/* ---------------- CONTAINER ---------------- */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 18px;
+}
+
+/* ---------------- HEADER ---------------- */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.titulo {
+    font-family: "Playfair Display", serif;
+    font-size: 2.7rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+.titulo span {
+    font-family: "Great Vibes", cursive;
+    font-size: 3.2rem;
+    color: #ffdd7e;
+}
+
+.subtitulo {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    opacity: 0.85;
+}
+
+/* ---------------- HERO ---------------- */
+.hero {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.foto-principal {
+    width: 500px;
+    height: 500px;
+    margin: 0 auto 20px;
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 3px solid #d4a64a;
+    box-shadow: 0 0 22px rgba(255, 215, 141, 0.5);
+}
+
+.foto-principal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gold-shine {
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(150%);
+    }
+}
+
+.hero-text .nome {
+    font-family: "Great Vibes", cursive;
+    font-size: 3rem;
+    color: #ffdd7e;
+}
+
+.mensagem-curta {
+    font-size: 1.3rem;
+    margin-top: 5px;
+}
+
+/* ---------------- BOTÃO SURPRESA ---------------- */
+.btn-surpresa {
+    display: block;
+    margin: 30px auto;
+    padding: 16px 28px;
+    background: linear-gradient(45deg, #ff007a, #ffae00);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-surpresa:hover {
+    transform: scale(1.05);
+}
+
+/* ---------------- TEXTO SURPRESA ---------------- */
+.texto-surpresa {
+    display: none;
+    background: rgba(0, 0, 0, 0.65);
+    padding: 25px;
+    margin-top: 20px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 210, 120, 0.5);
+    backdrop-filter: blur(6px);
+}
+
+.texto-surpresa p {
+    margin-bottom: 14px;
+    font-size: 1.1rem;
+}
+
+/* ============================
+   GALERIA MAIOR + BORDA DOURADA
+============================ */
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 30px;
+}
+
+.flip {
+    width: 100%;
+    height: 360px;
+    /* AUMENTADO */
+    perspective: 1200px;
+}
+
+@media (max-width: 600px) {
+    .flip {
+        height: 280px;
+        /* MOBILE maior também */
+    }
+}
+
+.flip-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform .9s ease;
+    transform-style: preserve-3d;
+}
+
+.flip:hover .flip-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    overflow: hidden;
+
+    /* Borda dourada forte */
+    border: 4px solid #d4af37;
+    box-shadow: 0 0 20px #d4af37aa;
+}
+
+.flip-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.flip-back {
+    background: #2d1c2d;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff3d4;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ---------------- CARTÃO ANIMADO ---------------- */
+.cartao-animado {
+    width: 320px;
+    margin: 40px auto;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 3px solid #ffb27e;
+    box-shadow: 0 0 15px rgba(255, 215, 141, 0.45);
+    position: relative;
+}
+
+.cartao-img img {
+    width: 100%;
+    display: block;
+}
+
+.cartao-text {
+    padding: 18px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.btn-prim {
+    padding: 14px 26px;
+    border: none;
+    background: #ff007a;
+    color: white;
+    font-size: 1rem;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.btn-prim:hover {
+    transform: scale(1.05);
+}
+
+/* Barra de ações do texto-surpresa */
+.surpresa-actions-right {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 25px;
+    padding-top: 12px;
+    border-top: 2px solid #d4af37;
+}
+
+.btn-small {
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background: #d4af37;
+    color: #2b1c2b;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.btn-small:hover {
+    background: #f9e29e;
+    box-shadow: 0 0 12px #f1d27f;
+}
+
+.btn-close {
+    background: #ff5c5c;
+    color: white;
+}
+
+.btn-close:hover {
+    background: #ff7b7b;
+}
+
+/* ============================
+   BALÕES FLUTUANTES
+============================ */
+
+.balao {
+    position: fixed;
+    width: 22px;
+    height: 28px;
+    border-radius: 50%;
+    background: #ff79bb;
+    box-shadow: 0 0 8px #ffacd7;
+    opacity: .9;
+    animation: subirBalao 7s linear infinite;
+    z-index: 1;
+}
+
+.balao::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 12px;
+    background: white;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: .7;
+}
+
+@keyframes subirBalao {
+    0% {
+        transform: translateY(120vh) scale(1);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-20vh) scale(1.3);
+        opacity: 0;
+    }
+}
+
+/* GLOW FORTE DOURADO */
+.gold-shine,
+.flip-front,
+.cartao-animado {
+    box-shadow:
+        0 0 25px #d4af37,
+        0 0 45px #d4af3799,
+        inset 0 0 25px #d4af37aa;
+    border: 4px solid #d4af37;
+}
+
+.cartao-animado:hover {
+    transform: scale(1.03);
+    transition: .4s ease;
+}
+
+/* Barra de ações do texto-surpresa */
+.surpresa-actions-right {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 25px;
+    padding-top: 12px;
+    border-top: 2px solid #d4af37;
+}
+
+.btn-small {
+    padding: 10px 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background: #d4af37;
+    color: #2b1c2b;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.btn-small:hover {
+    background: #f9e29e;
+    box-shadow: 0 0 12px #f1d27f;
+}
+
+.btn-close {
+    background: #ff5c5c;
+    color: white;
+}
+
+.btn-close:hover {
+    background: #ff7b7b;
+}
+
+/* ============================
+   BALÕES FLUTUANTES
+============================ */
+
+.balao {
+    position: fixed;
+    width: 22px;
+    height: 28px;
+    border-radius: 50%;
+    background: #ff79bb;
+    box-shadow: 0 0 8px #ffacd7;
+    opacity: .9;
+    animation: subirBalao 7s linear infinite;
+    z-index: 1;
+}
+
+.balao::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 12px;
+    background: white;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: .7;
+}
+
+@keyframes subirBalao {
+    0% {
+        transform: translateY(120vh) scale(1);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-20vh) scale(1.3);
+        opacity: 0;
+    }
+}
+
+/* ===== SEÇÃO DA MÚSICA ===== */
+.secao-musica {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 60px 0;
+}
+
+.texto-musica-container {
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(6px);
+
+    padding: 25px 35px;
+    max-width: 800px;
+    text-align: center;
+
+    border-radius: 18px;
+
+    border: 2px solid #FFD86B;
+    box-shadow:
+        0 0 15px #FFD86B,
+        0 0 30px rgba(255, 216, 107, 0.5),
+        inset 0 0 10px rgba(255, 216, 107, 0.5);
+
+    animation: pulsarBorda 3s ease-in-out infinite;
+}
+
+/* Animação do brilho */
+@keyframes pulsarBorda {
+    0% {
+        box-shadow:
+            0 0 10px #FFD86B,
+            0 0 25px rgba(255, 216, 107, 0.4),
+            inset 0 0 8px rgba(255, 216, 107, 0.3);
+    }
+
+    50% {
+        box-shadow:
+            0 0 20px #FFEB98,
+            0 0 50px rgba(255, 216, 107, 0.6),
+            inset 0 0 15px rgba(255, 216, 107, 0.5);
+    }
+
+    100% {
+        box-shadow:
+            0 0 10px #FFD86B,
+            0 0 25px rgba(255, 216, 107, 0.4),
+            inset 0 0 8px rgba(255, 216, 107, 0.3);
+    }
+}
+
+.titulo-musica {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(255, 230, 150, 0.8);
+}
+
+.texto-musica {
+    font-size: 1.2rem;
+    color: #EDEDED;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* === CAIXA DA MENSAGEM SURPRESA === */
+
+.texto-surpresa {
+    display: none;
+    justify-content: center;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.texto-surpresa-inner {
+    background: #ffffff;
+    /* FUNDO BRANCO */
+    color: #333;
+    /* TEXTO CHUMBO */
+    padding: 40px 50px;
+    max-width: 900px;
+    border-radius: 18px;
+
+    border: 2px solid #FFD86B;
+    /* BORDA DOURADA */
+    box-shadow:
+        0 0 10px #FFD86B,
+        0 0 25px rgba(255, 216, 107, .6),
+        inset 0 0 10px rgba(255, 216, 107, .4);
+}
+
+/* área rolável da mensagem */
+.surpresa-scroll {
+    max-height: 420px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.surpresa-scroll p {
+    font-size: 1.25rem;
+    /* AUMENTAR TAMANHO DO TEXTO */
+    line-height: 1.8;
+    margin-bottom: 18px;
+    color: #444;
+    /* melhor contraste */
+}
+
+.surpresa-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #222;
+}
+
+/* Botões de ação */
+.surpresa-actions-right {
+    margin-top: 25px;
+    text-align: right;
+}
+
+.btn-small {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background: #ffd86b;
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1rem;
+}
+
+.btn-small:hover {
+    background: #ffec9d;
+}
+
+.btn-close {
+    background: #ff4a4a;
+    color: #fff;
+}
+
+.btn-close:hover {
+    background: #ff6c6c;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+    .texto-surpresa-inner {
+        padding: 25px;
+    }
+
+    .surpresa-scroll p {
+        font-size: 1.1rem;
+    }
+
+    .surpresa-actions-right {
+        text-align: center;
+    }
+}
